@@ -1,0 +1,23 @@
+
+<% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+<div class="col-md-3">
+<%= render 'layouts/userinfo', user: @user %>
+<%= render 'layouts/newbook', book: @newbook %>
+</div>
+
+<div class="col-md-8 offset-md-1">
+    <h2>Book detail</h2>
+     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+      <%= link_to @user.name, user_path(@user) %>
+      <%= link_to @book.title, book_path(@book) %>
+      <%= @book.body %>
+<% if @book.user.id == current_user.id %>
+ <%= link_to "Edit", edit_book_path %>
+<%= link_to "Destroy", book_path, method: :delete %>
+<% end %>
+</div>
+
+
+

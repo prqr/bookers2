@@ -1,0 +1,18 @@
+<% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+
+<h1>welcome to <i class="fas fa-book"></i>Bookers !!</h1>
+
+<h5>In Bookers,</h5>
+
+<h6>you can share and exchange your opinions , inpressions , and emotions
+
+about various books!</h6>
+
+
+<%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
+
+
+
+<%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-dark' %>

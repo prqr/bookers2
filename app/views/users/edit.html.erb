@@ -1,0 +1,30 @@
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーが発生しました
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
+
+
+<%= form_with model:@user, local:true do |f| %>
+
+
+
+
+  <h3>User info</h3>
+  <h5>Name</h5>
+  <%= f.text_field :name %>
+
+  <h5>Image</h5>
+  <%= f.attachment_field :profile_image %>
+
+
+  <h5>Introduction</h5>
+  <%= f.text_area :introduction %>
+
+  <%= f.submit 'Update User' %>
+
+<% end %>
+
