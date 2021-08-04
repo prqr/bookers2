@@ -12,10 +12,11 @@
 <div class="col-md-8 offset-md-1">
 <h2>Books</h2>
 
-    <% @books.each do |book| %>
+   <% @books.each do |book| %>
     <%= link_to user_path(book.user.id) do %>
     <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
     <% end %>
+      
     <h5>Title</h5>
     <td><%= link_to book.title, book_path(book.id) %></td>
     <h5>Opinion</h5>
